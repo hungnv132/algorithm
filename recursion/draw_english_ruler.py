@@ -22,6 +22,7 @@
     - method interver_v (...) : recursion of draw_tick(...) mehtod until tick_length = 0
     - draw_english_ruler(...) is main method
         - for loop: for displaying 'inch'
++ References: Data structures and Algorithms in Python by Goodrich, Michael T., Tamassia, Roberto, Goldwasser, Michael
 """
 
 
