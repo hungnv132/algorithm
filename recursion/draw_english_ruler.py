@@ -5,7 +5,7 @@
     - Between the marks of whole inches, the ruler contains a series of 'minor sticks', placed at intervals of 1/2 inch,
       1/4 inch, and so on
     - As the size of the interval decrease by half, the tick length decreases by one
-+ Base cases(recursion:
++ Base cases(recursion): tick_length = 0
 + Input: inch, major tick length
 + Output:
     --- 0
