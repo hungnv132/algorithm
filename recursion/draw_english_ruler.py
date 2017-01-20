@@ -17,6 +17,11 @@
     --
     -
     --- 2
++ Ideas:
+    - method draw_tick(...)  is only responsible for printing the line of ticks (eg: ---, -, ---, --)
+    - method interver_v (...) : recursion of draw_tick(...) mehtod until tick_length = 0
+    - draw_english_ruler(...) is main method
+        - for loop: for displaying 'inch'
 """
 
 
@@ -49,9 +54,9 @@ def interval_v2(tick_length):
 def draw_english_ruler(inch, major_tick_length):
     draw_tick(major_tick_length, '0')
     for i in range(1,inch):
-        interval_v1(major_tick_length - 1)
+        interval_v2(major_tick_length - 1)
         draw_tick(major_tick_length, str(i))
 
 
 if __name__ == '__main__':
-    draw_english_ruler(3, 3)
+    draw_english_ruler(4, 5)
