@@ -49,11 +49,11 @@ def find_element(list, finding_value, low, high):
 
 
 def binary_search_v2(list, finding_value):
-    return  find_element(list, finding_value, 0, len(list) - 1)
+    return find_element(list, finding_value, 0, len(list) - 1)
 
 
 
 if __name__ == '__main__':
-    list = [12, 21, 35, 40, 56, 78, 88, 90, 99]
-    print(binary_search_v1(list, 21))
+    list = [12, 21, 35, 40, 56, 78, 88, 90]
+    print(binary_search_v1(list, 56))
     print(list)
