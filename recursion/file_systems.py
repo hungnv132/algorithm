@@ -16,6 +16,19 @@ def total_disk_usage(path):
             child_path = os.path.join(path, file)
             total = total + total_disk_usage(child_path)
     return total
+
+
+def file_system_tree(path, lines='', recursive = 0):
+
+    if os.path.isdir(path):
+        print("|%s %s [Dir] " % (lines * recursive, os.path.basename(path)))
+        recursive += 1
+        for file in os.listdir(path):
+            file_system_tree(os.path.join(path, file),'--', recursive)
+    else:
+        print("|%s %s [File]" % (lines * recursive, os.path.basename(path)))
+
 if __name__ == '__main__':
-    path = 'E:/test1'
-    print(total_disk_usage(path))
+    path = 'E:\\test'
+    print(file_system_tree(path))
+    print(os.path.basename(path))
