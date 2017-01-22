@@ -12,6 +12,7 @@
         - target_value < data[mid] => continue recurring in 'below part'
         - target_value > data[mid] => to recur in the other part
  + Base Cases(recursion):stop recurring when can not divide the list or found the target value
+ + References: Data structures and Algorithms in Python by Goodrich, Michael T., Tamassia, Roberto, Goldwasser, Michael
 """
 
 # the list is sorted
