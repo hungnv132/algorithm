@@ -10,6 +10,7 @@ def reverse(S):
     _reverse(S, 0, len(S)-1)
 
 
+# using a repetitive structure instead of recurring
 def reverse_v2(S):
     start, stop = 0,len(S)-1
     while start < stop:
