@@ -15,8 +15,6 @@
  + References: Data structures and Algorithms in Python by Goodrich, Michael T., Tamassia, Roberto, Goldwasser, Michael
 """
 
-# the list is sorted
-
 
 def binary_search_v1(list, finding_value):
     low = 0                 # first element's position in the list
@@ -46,15 +44,31 @@ def find_element(list, finding_value, low, high):
         elif finding_value < list[mid]:
             return find_element(list, finding_value, low, mid-1)
         else:
-            return find_element(list, finding_value, mid + 1, high)
+            return find_element(list, finding_value, mid+1, high)
 
 
 def binary_search_v2(list, finding_value):
-    return find_element(list, finding_value, 0, len(list) - 1)
+    return find_element(list, finding_value, 0, len(list)-1)
 
+
+# using repetitive structure replace a recursive call
+def find_element_v1(list, finding_value, low, high):
+    while low <= high:
+        mid = (low + high) // 2
+        if finding_value == list[mid]:
+            return True
+        elif finding_value < list[mid]:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return False
+
+
+def binary_search_v3(list, finding_value):
+    return find_element_v1(list, finding_value, 0, len(list) - 1)
 
 
 if __name__ == '__main__':
     list = [12, 21, 35, 40, 56, 78, 88, 90]
-    print(binary_search_v1(list, 56))
+    print(binary_search_v3(list, 88))
     print(list)
