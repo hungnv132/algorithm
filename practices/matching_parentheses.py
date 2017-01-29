@@ -32,6 +32,7 @@ def is_match_v1(string):
 
 
 # THIS WAY IS RIGHT!
+# Performance: O(n)
 def is_match_v2(string):
     
     opening = '({['
@@ -50,3 +51,4 @@ def is_match_v2(string):
 
 if __name__ == '__main__':
     print(is_match_v2("{}(()()){{{}}}[]()(][)"))
+    print(is_match_v2("[(5+x)-(y+z)]"))
