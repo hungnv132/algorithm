@@ -28,6 +28,8 @@ class Stack(object):
     def __len__(self):
         return len(self._data)
 
+    def __str__(self):
+        return str(self._data)
 
 if __name__ == '__main__':
     stack = Stack()
