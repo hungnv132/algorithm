@@ -24,7 +24,6 @@ class Queue(object):
         return len(self._data)
 
 
-# Performance: O(1)
 class ArrayQueue(object):
 
     DEFAULT_CAPACITY = 10
