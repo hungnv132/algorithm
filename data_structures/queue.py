@@ -1,6 +1,5 @@
 
 
-# Performace: O(n), where n is length of '_data'
 class Queue(object):
 
     def __init__(self):
