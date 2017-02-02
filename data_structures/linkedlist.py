@@ -1,4 +1,5 @@
 
+
 class _Node(object):
 
     __slots__ = '_element', '_next'
@@ -8,6 +9,7 @@ class _Node(object):
         self._next = next
 
 
+# =================START - Singly Linked List========================
 class LinkedStack(object):
 
     def __init__(self):
@@ -107,7 +109,11 @@ class LinkedQueue(object):
             node = node._next
         return str(element_list)
 
+# ================= END -  Singly Linked List========================
 
+# ================= START -  Circularly Linked List========================
+
+# ================= END -  Circularly Linked List========================
 if __name__ == '__main__':
     stack = LinkedStack()
     print('Length: %s' % (len(stack)))
