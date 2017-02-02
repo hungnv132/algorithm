@@ -111,9 +111,59 @@ class LinkedQueue(object):
 
 # ================= END -  Singly Linked List========================
 
-# ================= START -  Circularly Linked List========================
+# ================= START -  Circularly Linked List==================
+"""A circularly linked list may be used for a round-robin scheduler.
+A CirculaQueue class supports the entire queue ADT, together with an additional
+method, rotate(), that moves the first element of the queue to the back.
+"""
 
-# ================= END -  Circularly Linked List========================
+class CircularQueue(object):
+
+    def __init__(self):
+        self._tail = None
+        self._size = 0
+
+    def is_empty(self):
+        return self._size == 0
+
+    def __len__(self):
+        return self._size
+
+    def enqueue(self, element):
+        """Add an element to the back of the queue"""
+        new_node = _Node(element,None)
+        if self.is_empty():
+            new_node._next = new_node
+        else:
+            new_node._next = self._tail._next
+            self._tail._next = new_node
+        self._tail =  new_node
+        self._size += 1
+
+    def dequeue(self):
+        """Remove and return the first element of the queue(FIFO)"""
+        if self.is_empty():
+            raise Exception('The CircularQueue is empty')
+        answer = self._tail._next._element
+        if self._size == 1:
+            self._tail = None
+        else:
+            self._tail = self._tail._next
+        self._size -= 1
+        return answer
+
+    def first(self):
+        if self.is_empty():
+            raise Exception('The CircularQueue is empty')
+        head = self._tail._next
+        return head._element
+
+    def rotate(self):
+        if not self.is_empty():
+            self._tail = self._tail._next
+
+
+# ================= END -  Circularly Linked List====================
 if __name__ == '__main__':
     stack = LinkedStack()
     print('Length: %s' % (len(stack)))
