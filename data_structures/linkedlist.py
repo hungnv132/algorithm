@@ -99,7 +99,13 @@ class LinkedQueue(object):
             raise Exception('The queue is empty')
         return self._head._element
 
-
+    def __str__(self):
+        node = self._head
+        element_list = []
+        while node is not None:
+            element_list.append(node._element)
+            node = node._next
+        return str(element_list)
 
 
 if __name__ == '__main__':
@@ -115,3 +121,14 @@ if __name__ == '__main__':
     print("Top: %s" % (stack.top()))
     print("Second pop: %s" % (stack.pop()))
     print('Length: %s' % (len(stack)))
+    print("=====================================")
+    queue = LinkedQueue()
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
+    print(queue)
+    print('Length: %s' % (len(queue)))
+    print("First element: %s" % (queue.first()))
+    print("First Dequeue: %s" % (queue.dequeue()))
+    print('Length: %s' % (len(queue)))
+    print("New First element: %s" % (queue.first()))
