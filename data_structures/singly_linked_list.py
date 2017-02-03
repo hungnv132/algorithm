@@ -4,12 +4,11 @@ class _Node(object):
 
     __slots__ = '_element', '_next'
 
-    def __init__(self, element, next):
+    def __init__(self, element, _next):
         self._element = element
-        self._next = next
+        self._next = _next
 
 
-# =================START - Singly Linked List========================
 class LinkedStack(object):
 
     def __init__(self):
@@ -109,13 +108,13 @@ class LinkedQueue(object):
             node = node._next
         return str(element_list)
 
-# ================= END -  Singly Linked List========================
 
 # ================= START -  Circularly Linked List==================
 """A circularly linked list may be used for a round-robin scheduler.
 A CirculaQueue class supports the entire queue ADT, together with an additional
 method, rotate(), that moves the first element of the queue to the back.
 """
+
 
 class CircularQueue(object):
 
@@ -161,7 +160,6 @@ class CircularQueue(object):
     def rotate(self):
         if not self.is_empty():
             self._tail = self._tail._next
-
 
 # ================= END -  Circularly Linked List====================
 if __name__ == '__main__':
