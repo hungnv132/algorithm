@@ -11,11 +11,11 @@ class _Node(object):
 class DoublyLinkedBase(object):
     """ A base class providing a doubly linked list representation."""
     def __init__(self):
-        self._header =  _Node(None, None, None)
+        self._header = _Node(None, None, None)
         self._trailer = _Node(None, None, None)
         self._header._next = self._trailer
-        self._trailer._prev =  self._header
-        self._size =  0
+        self._trailer._prev = self._header
+        self._size = 0
 
     def __len__(self):
         """Return the number of elements in the list"""
@@ -41,6 +41,7 @@ class DoublyLinkedBase(object):
         element = node._element
         node._prev = node._next = node._element = None
         return element
+
 
 class LinkedDeque(DoublyLinkedBase):
 
