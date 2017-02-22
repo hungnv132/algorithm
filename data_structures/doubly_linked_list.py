@@ -1,18 +1,20 @@
-class _Node(object):
-
-    __slots__ = '_element', '_prev', '_next'
-
-    def __init__(self, element, prev, _next):
-        self._element = element  # user's element
-        self._prev = prev        # previous node reference
-        self._next = _next       # next node reference
 
 
 class _DoublyLinkedBase(object):
+
+    class _Node(object):
+        """Nonpublic class for storing a doubly linked node."""
+        __slots__ = '_element', '_prev', '_next'
+
+        def __init__(self, element, prev, _next):
+            self._element = element  # user's element
+            self._prev = prev  # previous node reference
+            self._next = _next  # next node reference
+
     """ A base class providing a doubly linked list representation."""
     def __init__(self):
-        self._header = _Node(None, None, None)
-        self._trailer = _Node(None, None, None)
+        self._header = self._Node(None, None, None)
+        self._trailer = self._Node(None, None, None)
         self._header._next = self._trailer
         self._trailer._prev = self._header
         self._size = 0
@@ -26,7 +28,7 @@ class _DoublyLinkedBase(object):
         return self._size == 0
 
     def _insert_between(self, element, predecessor, successor):
-        new_node = _Node(element, predecessor, successor)
+        new_node = self._Node(element, predecessor, successor)
         predecessor._next = new_node
         successor._prev = new_node
         self._size += 1
@@ -155,3 +157,24 @@ class PositionalList(_DoublyLinkedBase):
         """Insert element e at the back of the list and return new Postion"""
         return self._insert_between(e, self._trailer._prev, self._trailer)
 
+    def add_before(self, p, e):
+        """Insert element e into list before Position p and return new Position"""
+        original = self._validate(p)
+        return self._insert_between(e, original._prev, original)
+
+    def add_after(self, p, e):
+        """Insert element e into list after Position p and return new Position"""
+        original = self._validate(p)
+        return self._insert_between(e, original, original._next)
+
+    def delete(self, p):
+        """Remove and return the element at Position p"""
+        original = self._validate(p)
+        return self._delete_node(original)
+
+    def replace(self, p, e):
+        """Replace the element at Position p with e. Return the element formerly at Position p"""
+        original = self._validate(p)
+        old_value = original._element
+        original._element = e
+        return old_value
