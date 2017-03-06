@@ -146,7 +146,7 @@ class PositionalList(_DoublyLinkedBase):
     # override inherited version to return Position, rather than Node
     def _insert_between(self, element, predecessor, successor):
         """Add an element between existing nodes and return new Position"""
-        node =  super()._insert_between(element, predecessor, successor)
+        node =  super(PositionalList, self)._insert_between(element, predecessor, successor)
         return self._make_position(node)
 
     def add_first(self, e):
