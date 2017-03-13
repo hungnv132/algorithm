@@ -8,8 +8,8 @@ def remove_all_stack(stack):
         stack.pop()
         remove_all_stack(stack)
 
-if __name__ == '__main__':
 
+def test_remove_all_stack():
     stack = Stack()
     stack.push(1)
     stack.push(2)
@@ -17,3 +17,8 @@ if __name__ == '__main__':
     print(len(stack))
     remove_all_stack(stack)
     print(len(stack))
+
+if __name__ == '__main__':
+
+    print(ord('A'))
+    print(list(map(ord, 'spam')))
