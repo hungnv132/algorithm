@@ -1,4 +1,21 @@
 from basic_python.models import Person
+from abc import ABCMeta, abstractmethod
+
+
+# Python 3.X
+class Super(metaclass=ABCMeta):
+    @abstractmethod
+    def method(self):
+        pass
+
+
+# Python 2.X
+class Super:
+    __metaclass__ = ABCMeta
+
+    @abstractmethod
+    def method(self):
+        pass
 
 if __name__ == '__main__':
     one_man = Person
