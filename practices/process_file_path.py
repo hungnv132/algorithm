@@ -1,12 +1,17 @@
 
 import os
 import shutil
+from pathlib import Path
 
 BASE_DIR = os.path.abspath('C:\\Users\\hungnv132\\Google Drive\\English\\3000')
 DIR_TEST = './test_folder'
 
 COPY_SRC_DIR = 'C:\\Users\\Hp\\Google Drive\\English\\Newwords'
 COPY_DIST_DIR = 'C:\\Users\\Hp\\Google Drive\\English\\Life'
+
+copy_src = Path(COPY_SRC_DIR)
+copy_dist = Path(COPY_DIST_DIR)
+
 
 def _get_new_name(old_file_name):
     """
