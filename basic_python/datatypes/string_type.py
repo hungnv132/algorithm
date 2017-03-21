@@ -31,3 +31,8 @@ print('- s.find() = %s' % s.find('Machine', 0, 15))
 print('- s.rfind() = %s' % s.rfind('Machine'))
 print('- s.index() = %s' % s.index('yêu', 0, 10))
 
+s1 = 'a12345678'
+s2 = 'abcdeABCD'
+print('- s.isalpha() = %s' % s2.isalpha())
+print('- s.isalnum() = %s' % s1.isalnum())
+print('- s.join() = %s' % '-'.join(['1', '2', '3']))            # 1-2-3
