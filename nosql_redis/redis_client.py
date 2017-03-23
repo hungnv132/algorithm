@@ -1,5 +1,5 @@
 import redis
-from config import ConnectionInfo
+from .config import ConnectionInfo
 # r = redis.StrictRedis(host='localhost', port=6379, db=0)
 # r.set('name', 'hungnv132')
 # print (r.get('age'))
