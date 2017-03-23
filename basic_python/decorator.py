@@ -81,7 +81,7 @@ print(my_get_text('Machine Learning'))  # <p>I love Machine Learning</p>
 # with '@' keyword
 @p_decorate
 def get_text2(name):
-    return "I like "+ name
+    return "I like " + name
 
 print(get_text2('BBBB'))  # <p>I like BBBB</p>
 
@@ -99,7 +99,7 @@ def div_decorate(func):
         return "<div>{0}</div>".format(func(name))
     return func_wrapper
 
-get_text3= div_decorate(p_decorate(strong_decorate(get_text)))
+get_text3 = div_decorate(p_decorate(strong_decorate(get_text)))
 print(get_text3('This is content'))  # <div><p><strong>I love This is content</strong></p></div>
 
 
@@ -107,7 +107,7 @@ print(get_text3('This is content'))  # <div><p><strong>I love This is content</s
 @p_decorate
 @strong_decorate
 def get_text4(name):
-    return "Wellcome, "+ name
+    return "Welcome, " + name
 
 print(get_text4('CCCCC'))   # <div><p><strong>Wellcome, CCCCC</strong></p></div>
 
@@ -163,6 +163,7 @@ def tags(tag_name):
         return func_wrapper
     return tags_decorator
 
+
 @tags("span")
 def get_text5(name):
     return "Hello, " + name
@@ -196,3 +197,95 @@ def get_text5(name):
 
 print(get_text5("World"))  # <h1>Hello, World</h1>
 print(get_text5.__name__)  # Output: get_text5
+
+
+# =============================================
+# ID: 1234
+# @property, @classmethod, @staticmethod
+
+class Person(object):
+
+    def __init__(self, first_name='Hung', last_name='Ng V.'):
+        self._first_name = first_name
+        self._last_name = last_name
+
+    @property
+    def name(self):
+        return self._first_name + ' ' + self._last_name
+
+    @name.setter
+    def name(self, value):
+        name = value.split()
+        self._first_name = name[0]
+        self._last_name = name[1]
+
+    @name.deleter
+    def name(self):
+        self._last_name = "Default"
+
+    def __repr__(self):
+        return self._first_name + ' ' + self._last_name
+
+
+class Student(Person):
+
+    def __init__(self, age=21, address='Hanoi', first_name='Hung', last_name='Ng V.'):
+        self._age = age
+        self._address = address
+        super(Student, self).__init__(first_name, last_name)
+
+    def __repr__(self):
+        return "{0} {1}: {2} age".format(self._first_name, self._last_name,  self._age)
+
+    def get_age(self):
+        return self._age
+
+    def set_age(self, age):
+        self._age = age
+
+    def del_age(self):
+        del self._age
+
+    age = property(get_age, set_age,del_age)
+
+    @classmethod
+    def info(cls):
+        return "Nguyễn Việt Hùng, 21 tuổi"
+
+    @classmethod
+    def display_info(cls, address):
+        return "Information: %s, %s " % (cls.info(), address)
+
+    @staticmethod
+    def display_school():
+        return "Hanoi University Science of Technology"
+
+def demo_id_1234():
+    person = Person();
+    print(person.name)  # Output: Hung Nguyen V.
+
+    person.name = 'Ronaldo Cr7'
+
+    print(person.name)  # Output: Ronaldo Cr7
+    del person.name
+
+    print(person.name)   # Output: Ronaldo Default
+
+    stu = Student()
+    print(stu)          # Output: Hung Ng V.: 21 age
+
+    print(stu.age)      # Output: 21
+    stu.age = 24
+    print(stu.age)      # Output: 24
+    # del stu.age
+    # print(stu.age)      # Output: Error: 'Student' object has no attribute '_age'
+
+    print(Student.display_info("Hanoi"))    # Output: Information:Nguyễn Việt Hùng, 21 tuổi, Hanoi
+    print(stu.display_info("Hanoi"))        # Output: Information:Nguyễn Việt Hùng, 21 tuổi, Hanoi
+    print(Student.display_school())         # Output: Hanoi University Science of Technology
+    print(stu.display_school())             # Output: Hanoi University Science of Technology
+
+
+# =============================================
+if __name__ == '__main__':
+    demo_id_1234()
