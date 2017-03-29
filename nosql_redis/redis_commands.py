@@ -124,5 +124,13 @@ def hash_type_commands():
     p(redis_object.hdel('new_hash', 'name'))        # 1
     p(redis_object.hgetall('new_hash'))             # {b'age': b'21'}
 
+
+def sorted_set_type_commands():
+
+    # ZADD key [NX|XX] [CH] [INCR] score member [score member ...]
+    # Adds all the specified members with the specified scores to the sorted set stored at key
+    p(redis_object.zadd('sorted_set', 9, 'VN'))
+
+
 if __name__ == '__main__':
-    hash_type_commands()
+    sorted_set_type_commands()
