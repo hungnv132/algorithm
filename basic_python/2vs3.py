@@ -14,3 +14,9 @@ print(type(dic.keys()))     # 3.X - <class 'dict_keys'>
 
 keys = dic.keys()
 print(keys)
+
+# Integer
+
+# print 1/2     # 2.X - print: 0
+print(1/2)      # 3.X - print: 0.5
+print(1//2)     # 3.X - print: 0
