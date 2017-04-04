@@ -35,7 +35,29 @@ def merge_sort(S):
     print('S = {0}'.format(S))
 
 
+def _parition(A, p, r):
+    pivot = A[r]
+    i = p - 1
+    j = p
+    while j < r - 1:
+        if A[j] <= pivot:
+            i += 1
+            A[i], A[j] = A[j], A[i]
+        j += 1
+    A[i+1], A[r] = A[r], A[i+1]
+    print(A)
+    return i+1
+
+
+def quick_sort(sequence, p, r):
+
+    if p < r:
+        split_index = _parition(sequence, p, r)
+        quick_sort(sequence, p, split_index - 1)
+        quick_sort(sequence, split_index + 1, r )
+
+
 if __name__ == '__main__':
-    S = [78, 1, 21, 12, 8, 90, 38, 56, 5]
-    merge_sort(S)
+    S = [78, 1, 21, 12, 8]
+    quick_sort(S, 1, len(S))
     print(S)
