@@ -33,3 +33,23 @@ if __name__ == '__main__':
     print(list(map(ord, 'spam')))
     print(hash_code("hungnv132"))
 
+    global name
+    name ="huVgn"
+    print(set(name))
+    print(chr(97))
+    print(ord('â'))
+    print(hex(10))
+    print(oct(20))
+    print(globals())
+    print(min(name))
+    print(name.swapcase())
+
+    l = [1, 2, 3, 4]
+    l.insert(1, 5)
+    print(l)
+    print(str(3) is str('3'))
+    import time
+    import calendar
+
+    cal = calendar.month(2008, 1)
+    print(cal)
