@@ -1,5 +1,7 @@
+from abc import ABCMeta
 
-class Tree:
+
+class Tree(metaclass=ABCMeta):
     """Abstract base class representing a tree structure."""
 
     # ----------- nested Position class----------------
