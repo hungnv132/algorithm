@@ -39,10 +39,11 @@ def _parition(A, p, r):
     pivot = A[r]
     i = p - 1
     j = p
-    while j < r - 1:
+    while j < r:
         if A[j] <= pivot:
             i += 1
             A[i], A[j] = A[j], A[i]
+            print(A)
         j += 1
     A[i+1], A[r] = A[r], A[i+1]
     print(A)
@@ -58,6 +59,6 @@ def quick_sort(sequence, p, r):
 
 
 if __name__ == '__main__':
-    S = [78, 1, 21, 12, 8]
-    quick_sort(S, 1, len(S))
+    S = [78, 1, 21,88, 12, 8, 50, 4]
+    quick_sort(S, 0, len(S)-1)
     print(S)
