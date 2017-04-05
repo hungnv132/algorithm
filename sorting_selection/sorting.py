@@ -43,10 +43,8 @@ def _parition(A, p, r):
         if A[j] <= pivot:
             i += 1
             A[i], A[j] = A[j], A[i]
-            print(A)
         j += 1
     A[i+1], A[r] = A[r], A[i+1]
-    print(A)
     return i+1
 
 
