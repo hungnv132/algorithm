@@ -25,7 +25,7 @@ if __name__ == '__main__':
     print('object Person(): ' + str(Person()))  # hungnv132 - age 24
     print('object one_man(): ' + str(one_man()))  # hungnv132 - age 24
 
-    person =  Person()
+    person = Person()
     student = Person()
     student.set_name('hnv132')
 
@@ -37,7 +37,3 @@ if __name__ == '__main__':
     print()
     print(int)
     print(person.m())
-
-
-
-
