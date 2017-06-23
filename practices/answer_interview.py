@@ -44,7 +44,7 @@ print(sorted(city_list, compare2, key))
 print(sorted(city_list, lambda x, y: cmp(x, y), lambda x: x['population']))
 
 
-#--------------- remove duplicate items in a list-----------------
+# --------------- remove duplicate items in a list-----------------
 num_list = [1, 2, 4, 6, 4, 2, 8, 8, 3, 2]
 new_list = []
 for item in num_list:
