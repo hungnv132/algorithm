@@ -19,9 +19,7 @@ def test_scope1():
 def test_scope2():
     global name
     name = 'new world'
-    print('1. %s' %name)         # Print: 'new world'
-
-
+    print('1. %s' % name)         # Print: 'new world'
 
 
 def function_call(a, b):
@@ -33,7 +31,7 @@ def test_function_call():
     list = (45, 90)
     list1 = (45, 90, 88)
     dic = {'a': 12, 'b': 56}
-    dic1 = {'a': 12,}
+    dic1 = {'a': 12, }
     dic2 = {'c': 68, 'd': 88}
     # function_call(2, 3)        # OK
     # function_call(2)           # ERROR: takes 2 positional arguments but 1 were given
