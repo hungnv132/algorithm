@@ -67,13 +67,13 @@ if __name__ == '__main__':
     # sum_of_first_n = sum(FirstN(1000000))
     # sum_of_first_n = sum(first_n_v2(1000000))
     # print(sum_of_first_n)
-
+    a = simple_generator()
     print(type(simple_generator))  # <class 'function'>
     print(type(simple_generator()))  # <class 'generator'>
     print(simple_generator())  # <generator object simple_generator at 0x7f1268d1dc50>
-    print(next(simple_generator()))  # hello
-    print(next(simple_generator()))  # hello
-    print(next(simple_generator()))  # hello
+    print(next(a))  # hello
+    print(next(a))  # how are you?
+    print(next(a))  # Nice to meet you
     
     for say in simple_generator():
         print(say)  # hello how are you? Nice to meet you
