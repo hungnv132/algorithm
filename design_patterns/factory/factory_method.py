@@ -1,12 +1,14 @@
+from abc import ABCMeta
+
 import xml.etree.ElementTree as ET
 import json
 
 
-class Reader(object):
+class Reader(metaclass=ABCMeta):
 
     @property
     def parsed_data(self):
-        return self.data
+        raise NotImplementedError("You must implement method 'parsed_data()'")
 
 
 class JSONReader(Reader):
@@ -16,11 +18,19 @@ class JSONReader(Reader):
         with open(filepath, mode='r', encoding='utf-8') as f:
             self.data = json.load(f)
 
+    @property
+    def parsed_data(self):
+        return self.data
+
 
 class XMLReader(Reader):
 
     def __init__(self, filepath):
-        self.data = ET.parse(filepath)
+        self.tree = ET.parse(filepath)
+
+    @property
+    def parsed_data(self):
+        return self.tree
 
 
 def reader_factory(filepath):
