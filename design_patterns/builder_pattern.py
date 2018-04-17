@@ -1,7 +1,18 @@
 
+"""
+Use Case 1: Build a computer
+ - A class `Computer` that you CAN NOT create directly via constructor.
+ - It's constructor has no parameters such as `memory`, `hdd`, `gpu`, ...
+
+ - A class `ComputerBuilder`, an object `Computer` will be produced at here.
+ - YOu can make order of processing build computer.
+"""
+
+
 class Computer(object):
 
     def __init__(self, serial_number):
+        """You can not create a computer directly"""
         self.serial = serial_number
         self.memory = None
         self.hdd = None
