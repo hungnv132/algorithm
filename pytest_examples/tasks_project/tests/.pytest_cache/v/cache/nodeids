@@ -1,0 +1,5 @@
+[
+  "func/test_fixtures.py::test_some_data",
+  "func/test_fixtures.py::test_my_name",
+  "func/test_fixtures.py::test_my_name2"
+]

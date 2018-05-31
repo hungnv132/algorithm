@@ -1,0 +1,4 @@
+{
+  "func/test_add.py::test_add_return_valid_id": true,
+  "func/test_unique_id1.py::test_unique_id": true
+}
