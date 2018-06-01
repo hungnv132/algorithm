@@ -48,9 +48,5 @@ def most_frequently_occurring_items():
     d = a - b
 
 
-
-
-
-
 if __name__ == '__main__':
     most_frequently_occurring_items()
