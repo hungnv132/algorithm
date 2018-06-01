@@ -1,11 +1,11 @@
-from collections import deque
-import heapq
 
-
-def unpacking_1_():
+def unpacking_sequence_into_separate_variables():
     """
-    Unpacking a sequence into separate variable
-     - Working with any iterable object: tuple, list, string, files, iterators, generators
+    + Unpacking a sequence into separate variable
+    - Problem: You have an N-element tuple or sequence that you would like to
+     unpack into a collection of N variables.
+    - Solution: Any sequence (or iterable) can be unpacked into variables using
+    a simple assignment operation.
     """
     p = (4, 5)
     x, y = p
@@ -33,17 +33,26 @@ def unpacking_1_():
     print(price)  # 91.1
 
 
-def unpacking_2_():
+def unpacking_from_iterables_of_arbitrary_length():
     """
-    Unpacking elements from iterables of Arbitrary length
-     - star expressions
+    + Unpacking elements from iterables of Arbitrary length
+    - Problem: Need to unpack N elements from an iterable, but the iterable may
+    be longer than N elements, causing a "too many values to unpack" exception.
+    - Solution: use star expressions
     """
+
     def drop_first_last(elements):
         first, *middle, last = elements
         return middle, sum(middle)
 
     elements = [3, 5, 2, 6, 8, 5, 4, 3, 8]
     print(drop_first_last(elements))  # ([5, 2, 6, 8, 5, 4, 3], 33)
+
+    record = ('Hung', 'hung@gmail.com', '01631234567', '01632222222')
+    name, email, *phone_numbers = record
+    print(name)             # Hung
+    print(email)            # hung@gmail.com
+    print(phone_numbers)    # ['01631234567', '01632222222']
 
     *trailing, current = [3, 5, 2, 6, 8, 5, 4, 3, 8]
     print(trailing)  # [3, 5, 2, 6, 8, 5, 4, 3]
@@ -89,49 +98,10 @@ def unpacking_2_():
 
     def tong(items):
         head, *tail = items
-        return head + _sum(tail) if tail else head
+        return head + sum(tail) if tail else head
 
     print(tong(items))  # 36
 
 
-def keep_last_n_items():
-    """
-    Keeping the last N items
-    """
-    def search(lines, pattern, history=5):
-        previous_lines = deque(maxlen=history)
-        for line in lines:
-            if pattern in line:
-                yield line, previous_lines
-            previous_lines.append(line)
-
-    with open('test.txt') as f:
-        for line, prevlines in search(f, 'python', 5):
-            for pline in prevlines:
-                print(pline, end='')
-            print(line, end='')
-            print('-'*20)
-
-
-def find_largest_smallest_n_items():
-    nums = [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2]
-    print(heapq.nlargest(3, nums))   # [42, 37, 23]
-    print(heapq.nsmallest(3, nums))  # [-4, 1, 2]
-
-    portfolio = [
-        {'name': 'IBM', 'shares': 100, 'price': 91.1},
-        {'name': 'AAPL', 'shares': 50, 'price': 543.22},
-        {'name': 'FB', 'shares': 200, 'price': 21.09},
-        {'name': 'HPQ', 'shares': 35, 'price': 31.75},
-        {'name': 'YHOO', 'shares': 45, 'price': 16.35},
-        {'name': 'ACME', 'shares': 75, 'price': 115.65}
-    ]
-
-    cheap = heapq.nsmallest(2, portfolio, key=lambda s: s['price'])
-    expensive = heapq.nlargest(2, portfolio, key=lambda s: s['price'])
-    print(cheap)   # [{'name': 'YHOO', 'price': 16.35, 'shares': 45}, {'name': 'FB', 'price': 21.09, 'shares': 200}]
-    print(expensive)  # [{'name': 'AAPL', 'shares': 50,'price': 543.22},{'name': 'ACME', 'shares': 75, 'price': 115.65}]
-
-
 if __name__ == "__main__":
-    find_largest_smallest_n_items()
+    unpacking_from_iterables_of_arbitrary_length()
