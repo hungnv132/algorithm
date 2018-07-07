@@ -1,3 +1,9 @@
+"""
+- Singly linked list, in its simplest form, is a collection of nodes that
+collectively form a linear sequence.
+- The first and last node of a linked list are known as the "head" and "tail" 
+of the list, respectively.
+"""
 
 
 class _Node(object):
@@ -87,7 +93,7 @@ class LinkedQueue(object):
         """
         if self.is_empty():
             raise Exception('The queue is empty')
-        answer =  self._head._element
+        answer = self._head._element
         self._head = self._head._next
         self._size -= 1
         if self.is_empty():
@@ -130,13 +136,13 @@ class CircularQueue(object):
 
     def enqueue(self, element):
         """Add an element to the back of the queue"""
-        new_node = _Node(element,None)
+        new_node = _Node(element, None)
         if self.is_empty():
             new_node._next = new_node
         else:
             new_node._next = self._tail._next
             self._tail._next = new_node
-        self._tail =  new_node
+        self._tail = new_node
         self._size += 1
 
     def dequeue(self):
@@ -160,6 +166,7 @@ class CircularQueue(object):
     def rotate(self):
         if not self.is_empty():
             self._tail = self._tail._next
+
 
 # ================= END -  Circularly Linked List====================
 if __name__ == '__main__':

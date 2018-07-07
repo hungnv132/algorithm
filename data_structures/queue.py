@@ -9,12 +9,18 @@ class Queue(object):
         return len(self._data) == 0
 
     def enqueue(self, value):
+        """Add an element to back of the queue"""
         self._data.append(value)
 
     def dequeue(self):
+        """
+        Remove and return the first element of the queue;
+        Raise an error if the queue is emtpy.
+        """
         if self.is_empty():
             raise Exception('The queue is empty')
-        return self._data.pop(0)  # Performace: O(n), where n is length of '_data'
+        return self._data.pop(0)
+        # Performace: O(n), where n is length of '_data'
 
     def first(self):
         return self._data[0]
@@ -47,8 +53,9 @@ class ArrayQueue(object):
         return self._data[self._front]
 
     def dequeue(self):
-        """Remove and return the first element of the queue
-            Raise an exception if the queue is empty
+        """
+        Remove and return the first element of the queue
+        Raise an exception if the queue is empty
         """
         if self.is_empty():
             raise Exception('The queue is empty')
@@ -75,6 +82,7 @@ class ArrayQueue(object):
             walk = (1 + walk) % len(old)
         self._front = 0
 
+
 if __name__ == '__main__':
     q = ArrayQueue()
     q.enqueue(1)
@@ -87,4 +95,3 @@ if __name__ == '__main__':
     print(len(q))
     print(q.dequeue())
     print(q.first())
-

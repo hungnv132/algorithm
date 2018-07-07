@@ -2,14 +2,15 @@
 from time import time
 from common import time_log as log
 """
-  There are three sequences of numbers, A, B and C (No individual sequence contains duplicate values),
-  but there may be some numbers that are in two or three of the sequences.
-  if there are at least an element exists on all sequences, then return 'False',
-  else True
+  There are three sequences of numbers, A, B and C (No individual sequence 
+  contains duplicate values), but there may be some numbers that are in two or 
+  three of the sequences. If there are at least an element exists on all 
+  sequences, then return 'False', else True
 """
 A = [12, 45, 55, 89, 1, 9, 2]
 B = [12, 51, 28, 41, 70, 88]
 C = [23, 60, 49, 65, 80, 62]
+
 
 # The this first algorithm's performance is O(n^3)
 def disjoin_first(*args):
@@ -33,5 +34,6 @@ def disjoin_second(*args):
                         return False
     return True
 
+
 if __name__ == '__main__':
-    log.print_time(disjoin_first,A, B, C)
+    log.print_time(disjoin_first, A, B, C)

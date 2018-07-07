@@ -70,6 +70,7 @@ class Deque(object):
             walk = (1 + walk) % len(old)
         self._front = 0
 
+
 if __name__ == '__main__':
     deq = Deque()
     deq.add_first(1)

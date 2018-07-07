@@ -31,6 +31,7 @@ class Stack(object):
     def __str__(self):
         return str(self._data)
 
+
 if __name__ == '__main__':
     stack = Stack()
     stack.push(4)
@@ -46,4 +47,3 @@ if __name__ == '__main__':
     print(stack.pop())
     print(len(stack))
     print(stack.is_empty())
-
